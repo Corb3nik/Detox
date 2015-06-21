@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150621025548) do
+ActiveRecord::Schema.define(version: 20150621041607) do
+
+  create_table "comic_vine_series", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.string   "year",       null: false
+    t.string   "publisher"
+    t.string   "status",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "issues", force: :cascade do |t|
     t.string   "path",       null: false
