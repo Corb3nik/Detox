@@ -1,5 +1,5 @@
 class ComicVineSeries < ActiveRecord::Base
-  has_many :pending_issues
+  has_many :unmatched_issues
 
   validates :name, presence: true
   validates :year, presence: true
