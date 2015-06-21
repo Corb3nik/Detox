@@ -1,5 +1,5 @@
 class Issue < ActiveRecord::Base
-  has_one :PendingIssue
+  has_one :pending_issue
 
   validates :path, presence: true
   validates :filename, presence: true
