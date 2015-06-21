@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150621144628) do
+ActiveRecord::Schema.define(version: 20150621150512) do
 
   create_table "comic_vine_series", force: :cascade do |t|
     t.string   "name",       null: false
@@ -33,13 +33,11 @@ ActiveRecord::Schema.define(version: 20150621144628) do
   end
 
   create_table "pending_issues", force: :cascade do |t|
-    t.integer  "issue_id",             null: false
-    t.integer  "comic_vine_series_id"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.integer  "issue_id",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "pending_issues", ["comic_vine_series_id"], name: "index_pending_issues_on_comic_vine_series_id"
   add_index "pending_issues", ["issue_id"], name: "index_pending_issues_on_issue_id"
 
   create_table "unmatched_issues", force: :cascade do |t|
@@ -51,5 +49,19 @@ ActiveRecord::Schema.define(version: 20150621144628) do
 
   add_index "unmatched_issues", ["comic_vine_series_id"], name: "index_unmatched_issues_on_comic_vine_series_id"
   add_index "unmatched_issues", ["issue_id"], name: "index_unmatched_issues_on_issue_id"
+
+  create_table "watched_issues", force: :cascade do |t|
+    t.integer  "comic_vine_series_id", null: false
+    t.integer  "issue_id"
+    t.integer  "number",               null: false
+    t.string   "name"
+    t.date     "cover_date"
+    t.string   "status",               null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "watched_issues", ["comic_vine_series_id"], name: "index_watched_issues_on_comic_vine_series_id"
+  add_index "watched_issues", ["issue_id"], name: "index_watched_issues_on_issue_id"
 
 end
