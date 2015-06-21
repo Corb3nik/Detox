@@ -1,4 +1,6 @@
 class ComicVineSeries < ActiveRecord::Base
+  has_many :PendingIssue
+
   validates :name, presence: true
   validates :year, presence: true
   validates :status, presence: true
