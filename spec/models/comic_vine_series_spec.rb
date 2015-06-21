@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 describe ComicVineSeries, type: :model do
+  it { should have_many :unmatched_issues }
+  it { should have_many :watched_issues }
+
   it "is invalid without name" do
     comic_vine_series = ComicVineSeries.new year: "test_year", status: "test_status"
     expect(comic_vine_series.valid?).to be false

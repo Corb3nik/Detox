@@ -7,6 +7,9 @@ describe WatchedIssue, type: :model do
     @comic_vine_series = ComicVineSeries.create name: "test_name", year: "test_year", status: "test_status"
   end
 
+  it { should belong_to :comic_vine_series }
+  it { should belong_to :issue }
+
   it "is invalid without a comic vine series id" do
     watched_issue = @issue.build_watched_issue number: 1, status: "test_status"
     expect(watched_issue.valid?).to be false

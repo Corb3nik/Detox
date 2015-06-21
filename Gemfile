@@ -16,6 +16,7 @@ group :development, :test do
   gem 'byebug'                          # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'awesome_print'                   # https://github.com/michaeldv/awesome_print
   gem 'rspec-rails', '~> 3.0'           # https://github.com/rspec/rspec-rails
+  gem 'shoulda-matchers'                # https://github.com/thoughtbot/shoulda
   gem 'spring'                          # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'web-console', '~> 2.0'           # Access an IRB console on exception pages or by using <%= console %> in views
 end
