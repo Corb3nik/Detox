@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe WatchlistController, type: :controller do
-
   before :each do
     @watched_issue = FactoryGirl.create :watched_issue
   end
@@ -20,17 +19,10 @@ describe WatchlistController, type: :controller do
     end
   end
 
-  describe "GET #delete" do
-    it "renders the delete template" do
-      get :delete, id: @watched_issue.comic_vine_series_id
-      expect(response).to render_template :delete
-    end
-  end
-
   describe "DELETE #destroy" do
     it "redirects to #index" do
       delete :destroy, id: @watched_issue.comic_vine_series_id
-      expect(response).to redirect_to(:index)
+      expect(response).to redirect_to watchlist_path
     end
   end
-end
+

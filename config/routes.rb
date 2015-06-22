@@ -53,4 +53,9 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  # Watchlist
+  get :watchlist, to: 'watchlist#index'
+  resources :watchlist, only: [:show, :destroy], as: :volume
+  root 'watchlist#index'
 end
