@@ -56,6 +56,6 @@ Rails.application.routes.draw do
 
   # Watchlist
   get :watchlist, to: 'watchlist#index'
-  resources :watchlist, only: [:show, :destroy], as: :volume
+  resources :watchlist, only: [:show, :destroy], path: :volume, as: :volume
   root 'watchlist#index'
 end
