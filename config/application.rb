@@ -22,5 +22,11 @@ module Detox
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # Generate factories in spec folder
+    config.generators do |g|
+      g.factory_girl dir: 'spec/factories'
+      g.fixture_replacement :factory_girl
+    end
   end
 end

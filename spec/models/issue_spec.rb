@@ -6,17 +6,17 @@ describe Issue, type: :model do
   it { should have_many :unmatched_issues }
 
   it "is invalid without a path" do
-    issue = Issue.new filename: "test_filename", name: "test_name"
+    issue = FactoryGirl.build :issue, path: nil
     expect(issue.valid?).to be false
   end
 
   it "is invalid without a filename" do
-    issue = Issue.new path: "test_path", name: "test_name"
+    issue = FactoryGirl.build :issue, filename: nil
     expect(issue.valid?).to be false
   end
 
   it "is invalid without a name" do
-    issue = Issue.new path: "test_path", filename: "test_filename"
+    issue = FactoryGirl.build :issue, name: nil
     expect(issue.valid?).to be false
   end
 end

@@ -13,8 +13,9 @@ gem 'uglifier', '>= 1.3.0'              # Use Uglifier as compressor for JavaScr
 gem 'sdoc', '~> 0.4.0', group: :doc     # bundle exec rake doc:rails generates the API under doc/api.
 
 group :development, :test do
-  gem 'byebug'                          # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'awesome_print'                   # https://github.com/michaeldv/awesome_print
+  gem 'byebug'                          # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'factory_girl_rails', '~> 4.0'    # https://github.com/thoughtbot/factory_girl_rails
   gem 'rspec-rails', '~> 3.0'           # https://github.com/rspec/rspec-rails
   gem 'shoulda-matchers'                # https://github.com/thoughtbot/shoulda
   gem 'spring'                          # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
