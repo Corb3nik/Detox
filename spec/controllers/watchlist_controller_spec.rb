@@ -20,9 +20,9 @@ describe WatchlistController, type: :controller do
   end
 
   describe "DELETE #destroy" do
-    it "redirects to #index" do
+    it "renders the index template" do
       delete :destroy, id: @watched_issue.comic_vine_series_id
-      expect(response).to redirect_to watchlist_path
+      expect(response).to render_template :index
     end
   end
-
+end

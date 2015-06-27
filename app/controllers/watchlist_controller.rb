@@ -6,6 +6,7 @@ class WatchlistController < ApplicationController
   end
 
   def destroy
-    redirect_to watchlist_path
+
+    render :index
   end
 end

@@ -57,5 +57,11 @@ Rails.application.routes.draw do
   # Watchlist
   get :watchlist, to: 'watchlist#index'
   resources :watchlist, only: [:show, :destroy], path: :volume, as: :volume
+
+  # Import list
+  post 'import_list/scan', to: 'import_list#scan'
+  post 'import_list/import', to: 'import_list#import'
+  get :import_list, to: 'import_list#index'
+
   root 'watchlist#index'
 end
