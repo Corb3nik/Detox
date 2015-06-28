@@ -1,6 +1,7 @@
 class ImportListController < ApplicationController
 
   def index
+    Rails.logger.info Scan.scan "/Volumes/public/#Detox-Samples/"
   end
 
   def scan
