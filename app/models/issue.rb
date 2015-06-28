@@ -6,4 +6,14 @@ class Issue < ActiveRecord::Base
   validates :path, presence: true
   validates :filename, presence: true
   validates :name, presence: true
+
+  def self.create_pending_issue(path, filename, name, year, issue_number)
+    issue = Issue.create path: path,
+        filename: filename,
+        name: name,
+        year: year,
+        number: issue_number
+
+    issue.create_pending_issue
+  end
 end

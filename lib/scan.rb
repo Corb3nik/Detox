@@ -35,9 +35,13 @@ class Scan
     name
   end
 
+  def self.remove_extra_spaces(name)
+    name.gsub /\s+/, ' '
+  end
+
   def self.extract_volume_number(name)
     name.match /(v\.*\s*[0-9]+)|(vol\.*\s*[0-9]+)/i do |m|
-      return m[0].match(/[0-9]+/)[0].sub! /^00/, ""
+      return m[0].match(/[0-9]+/)[0]
     end
   end
 
@@ -48,7 +52,7 @@ class Scan
         issue_number = s[1]
       end
     end
-    issue_number.sub! /^00/, ""
+    issue_number
   end
 
   def self.remove_extras(name)
@@ -70,6 +74,7 @@ class Scan
 
       # Extract volume
       if volume = extract_volume_number(issue)
+        puts "Found volume #{volume} for issue #{issue}"
         issue = issue.sub /v\.*\s*#{volume}|(vol\.*\s*#{volume})/, ''
       end
 
@@ -81,12 +86,22 @@ class Scan
         issue = issue.sub /.#{issue_number}/, ''
       end
 
+      # Remove extra spaces
+      issue = remove_extra_spaces issue
+
       # Analyze results
-      if volume && volume.match /^(20|19)[0-9]{2}$/
+      if volume && volume.match(/^(20|19)[0-9]{2}$/)
         year ||= volume
-      elsif volume
-        issue ||= volume
+      elsif volume && issue_number.nil?
+        issue_number = volume
       end
+
+      # Create pending issue
+      Issue.create_pending_issue File.dirname(file),
+          File.basename(file),
+          issue,
+          year,
+          issue_number.sub!(/^0*/, "") if issue_number
     end
   end
 
