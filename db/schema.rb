@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150621150512) do
+ActiveRecord::Schema.define(version: 20150628220942) do
 
   create_table "comic_vine_series", force: :cascade do |t|
     t.string   "name",       null: false
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 20150621150512) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "issues", ["path", "filename"], name: "index_issues_on_path_and_filename", unique: true
 
   create_table "pending_issues", force: :cascade do |t|
     t.integer  "issue_id",   null: false
