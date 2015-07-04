@@ -1,21 +1,18 @@
 %aside.main-sidebar
-  / sidebar: style can be found in sidebar.less
   %section.sidebar
-    / Sidebar Menu
     %ul.sidebar-menu
       %li.header Overview
-      / Optionally, you can add icons to the links
-      %li.active
-        %a{:href => "#"}
+      %li
+        = link_to watchlist_path do
           %i.fa.fa-link
           %span Watchlist
+
+      -# %li
+      -#   = link_to unmatched_list_path do
+      -#     %i.fa.fa-link
+      -#     %span Unmatched list
+
       %li
-        %a{:href => "#"}
+        = link_to import_list_path do
           %i.fa.fa-link
-          %span Unmatched list
-      %li.treeview
-        %a{:href => "#"}
-          %i.fa.fa-link
-          %span Import list
-    / /.sidebar-menu
-  / /.sidebar
+          %span Import List
