@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'adminlte2-rails'                   # https://github.com/nicolas-besnard/adminlte2-rails
 gem 'autoprefixer-rails'                # https://github.com/postcss/autoprefixer
 gem 'bootstrap-sass', '~> 3.2.0'        # https://github.com/twbs/bootstrap-sass
 gem 'coffee-rails', '~> 4.1.0'          # Use CoffeeScript for .coffee assets and views
