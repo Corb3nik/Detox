@@ -31,5 +31,12 @@ module Detox
       g.factory_girl dir: 'spec/factories'
       g.fixture_replacement :factory_girl
     end
+
+    # Bootstrap navbar
+    BootstrapNavbar.configure do |config|
+      config.bootstrap_version = '3.2.0'
+      config.current_url_method = 'request.original_url'
+    end
+    ActionView::Base.send :include, BootstrapNavbar::Helpers
   end
 end

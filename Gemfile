@@ -8,6 +8,7 @@ gem 'jbuilder', '~> 2.0'                # Build JSON APIs with ease. Read more: 
 gem 'jquery-rails'                      # Use jquery as the JavaScript library
 gem 'haml'                              # http://haml.info
 gem 'rails', '4.2.1'                    # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails_bootstrap_navbar'            # https://github.com/bootstrap-ruby/rails-bootstrap-navbar
 gem 'sqlite3'                           # Use sqlite3 as the database for Active Record
 gem 'sass-rails', '~> 5.0'              # Use SCSS for stylesheets
 gem 'turbolinks'                        # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
