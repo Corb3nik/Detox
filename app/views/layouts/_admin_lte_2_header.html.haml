@@ -1,0 +1,34 @@
+/ Main Header
+%header.main-header
+  / Logo
+  %a.logo{:href => "/"}
+    / mini logo for sidebar mini 50x50 pixels
+    %span.logo-mini
+      %b D
+    / logo for regular state and mobile devices
+    %span.logo-lg
+      %b Detox
+  / Header Navbar
+  %nav.navbar.navbar-static-top{:role => "navigation"}
+    / Sidebar toggle button
+    %a.sidebar-toggle{"data-toggle" => "offcanvas", :href => "#", :role => "button"}
+      %span.sr-only Toggle navigation
+    / Navbar Right Menu
+    .navbar-custom-menu
+      %ul.nav.navbar-nav
+        / Messages: style can be found in dropdown.less
+        %li.dropdown.messages-menu
+          / Menu toggle button
+          %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+            %i.fa.fa-bell-o
+            %span.label.label-success 4
+        / /.messages-menu
+        / Tasks Menu
+        %li.dropdown.tasks-menu
+          / Menu Toggle Button
+          %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+            %i.fa.fa-flag-o
+            %span.label.label-warning 9
+        %li
+          %a{"data-toggle" => "control-sidebar", :href => "#"}
+            %i.fa.fa-gears
