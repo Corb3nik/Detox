@@ -18,11 +18,8 @@
       = render partial: 'layouts/admin_lte_2_header'
       = render partial: 'layouts/admin_lte_2_sidebar'
       / Content Wrapper. Contains page content
-      .content-wrapper
-        / Main content
-        %section.content= yield
-        / /.content
-      / /.content-wrapper
+      .content-wrapper= yield
+
       / Main Footer
       %footer.main-footer
         / Default to the left

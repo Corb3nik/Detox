@@ -1,1 +1,27 @@
-%h1 Import List
+.content-header
+  %h1 Import List
+
+.content.body
+  .panel.panel-default
+    .panel-heading
+      .panel-title Scan
+    .panel-body
+      %form{ action: import_list_scan_path, method: :post }
+        .form-group
+          %label Select a folder to import :
+          %input.form-control{ type: :text }
+
+        .form-group
+          %label Action :
+          .radio-inline
+            %label
+              %input{ type: :radio, name: :import_options, value: :move } Move files
+          .radio-inline
+            %label
+              %input{ type: :radio, name: :import_options, value: :copy } Copy files
+
+          .checkbox-inline.pull-right
+            %label
+              %input{ type: :checkbox, value: :rename } Rename files
+
+        %button.btn.btn-lg.btn-primary{ type: :submit } Scan Folder
