@@ -37,6 +37,7 @@ class Scan
 
   def self.remove_extra_spaces(name)
     name.gsub /\s+/, ' '
+    name.strip
   end
 
   def self.extract_volume_number(name)

@@ -1,7 +1,7 @@
 class Issue < ActiveRecord::Base
-  has_one :pending_issue
-  has_one :watched_issue
-  has_many :unmatched_issues
+  has_one :pending_issue, dependent: :destroy
+  has_one :watched_issue, dependent: :destroy
+  has_many :unmatched_issues, dependent: :destroy
 
   validates :path, presence: true
   validates :filename, presence: true
