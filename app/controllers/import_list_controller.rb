@@ -5,7 +5,7 @@ class ImportListController < ApplicationController
   end
 
   def scan
-    @pending_issues = Scan.scan "/Volumes/public/#Detox-Samples/"
+    @pending_issues = Scan.scan params[:location]
     redirect_to :import_list
   end
 

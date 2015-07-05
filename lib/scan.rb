@@ -37,7 +37,6 @@ class Scan
 
   def self.remove_extra_spaces(name)
     name.gsub /\s+/, ' '
-    name.strip
   end
 
   def self.extract_volume_number(name)
@@ -75,7 +74,6 @@ class Scan
 
       # Extract volume
       if volume = extract_volume_number(issue)
-        puts "Found volume #{volume} for issue #{issue}"
         issue = issue.sub /v\.*\s*#{volume}|(vol\.*\s*#{volume})/, ''
       end
 

@@ -2,9 +2,9 @@
   .panel-heading
     .panel-title Scan
   .panel-body
-    %form{ action: import_list_scan_path, method: :post }
+    = form_tag import_list_scan_path, methhod: :post do
       .form-group
-        %label Select a folder to import :
-        %input.form-control{ type: :text }
+        = label_tag :location, "Select a folder to import : "
+        = text_field_tag :location, nil, class: 'form-control'
 
-      %button.btn.btn-lg.btn-primary{ type: :submit } Scan Folder
+      = submit_tag "Scan Folder", class: 'btn btn-lg btn-primary'

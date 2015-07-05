@@ -12,14 +12,14 @@ describe ImportListController, type: :controller do
   describe "POST #import" do
     it "renders the index template" do
       post :import
-      expect(response).to render_template :index
+      expect(response).to redirect_to :import_list
     end
   end
 
   describe "POST #scan" do
     it "renders the index template" do
       post :scan
-      expect(response).to render_template :index
+      expect(response).to redirect_to :import_list
     end
   end
 end
