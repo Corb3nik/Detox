@@ -11,6 +11,6 @@ class ImportListController < ApplicationController
 
   def import
 
-    render :index
+    redirect_to :import_list
   end
 end
