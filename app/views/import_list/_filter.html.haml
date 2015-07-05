@@ -3,9 +3,24 @@
     .panel-title Import
 
   %form{ action: import_list_import_path, method: :post }
+    .panel-body
+      %p Select the actions that you wish to perform on each imported issue.
+      %label Action :
+      .radio-inline
+        %label
+          %input{ type: :radio, name: :import_options, value: :move } Move files
+      .radio-inline
+        %label
+          %input{ type: :radio, name: :import_options, value: :copy } Copy files
+
+      .checkbox-inline.pull-right
+        %label
+          %input{ type: :checkbox, value: :rename } Rename files
+
     %table.table
       %tr
         %th
+          %input{ type: :checkbox }
         %th Name
         %th Year
         %th Number
