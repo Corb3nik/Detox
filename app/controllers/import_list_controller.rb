@@ -1,11 +1,11 @@
 class ImportListController < ApplicationController
 
   def index
-    Rails.logger.info Scan.scan "/Volumes/public/#Detox-Samples/"
+    @pending_issues = PendingIssue.includes(:issue).all
   end
 
   def scan
-
+    @pending_issues = Scan.scan "/Volumes/public/#Detox-Samples/"
     render :index
   end
 

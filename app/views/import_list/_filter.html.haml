@@ -1,0 +1,16 @@
+.panel.panel-default
+  .panel-heading
+    .panel-title Import
+
+  %form{ action: import_list_import_path, method: :post }
+    %table.table
+      %tr
+        %th
+        %th Name
+        %th Year
+        %th Number
+        %th Filename
+      = render(partial: 'import_list/pending_issue', collection: @pending_issues)
+
+    .panel-footer
+      %button.btn.btn-lg.btn-primary{ type: :submit } Import
