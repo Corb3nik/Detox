@@ -2,7 +2,7 @@
   .panel-heading
     .panel-title Import
 
-  %form{ action: import_list_import_path, method: :post }
+  = form_tag import_list_import_path, method: :post do
     .panel-body
       %p Select the actions that you wish to perform on each imported issue.
       %label Action :

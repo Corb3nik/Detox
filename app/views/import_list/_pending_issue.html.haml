@@ -1,6 +1,6 @@
 %tr
   %td
-    %input{ type: :checkbox, name: :checkbox, value: pending_issue.issue.id}
+    = check_box_tag 'issue_ids[]', pending_issue.issue_id
   %td= pending_issue.issue.name
   %td= pending_issue.issue.year
   %td= pending_issue.issue.number
