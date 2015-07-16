@@ -11,6 +11,10 @@ class ImportListController < ApplicationController
 
   def import
 
+    for issue_id in params[:issue_ids] do
+      IssueManager.remove(issue_id, from: PendingIssue)
+      IssueManager.add(issue_id, to: WatchedIssue)
+    end
     redirect_to :import_list
   end
 end
