@@ -15,8 +15,8 @@ class ImportListController < ApplicationController
   def import
     if params.has_key? :issue_ids
       for issue_id in params[:issue_ids] do
-        IssueManager.remove(issue_id, from: PendingIssue)
-        IssueManager.add(issue_id, to: WatchedIssue)
+        IssueManager.remove(issue_id, PendingIssue)
+        IssueManager.add(issue_id, WatchedIssue)
       end
     end
 
