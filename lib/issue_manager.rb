@@ -5,6 +5,6 @@ class IssueManager
 
   def self.add(issue_id, to, options = {})
     options[:issue_id] = issue_id
-    to.create(options)
+    to.create! options
   end
 end
