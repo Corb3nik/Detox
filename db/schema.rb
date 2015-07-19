@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150628220942) do
+ActiveRecord::Schema.define(version: 20150719162309) do
 
   create_table "comic_vine_series", force: :cascade do |t|
     t.string   "name",       null: false
@@ -20,6 +20,11 @@ ActiveRecord::Schema.define(version: 20150628220942) do
     t.string   "status",     null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "configs", force: :cascade do |t|
+    t.string "var"
+    t.string "value"
   end
 
   create_table "issues", force: :cascade do |t|
@@ -41,6 +46,11 @@ ActiveRecord::Schema.define(version: 20150628220942) do
   end
 
   add_index "pending_issues", ["issue_id"], name: "index_pending_issues_on_issue_id"
+
+  create_table "settings", force: :cascade do |t|
+    t.string "var"
+    t.string "value"
+  end
 
   create_table "unmatched_issues", force: :cascade do |t|
     t.integer  "issue_id",             null: false
