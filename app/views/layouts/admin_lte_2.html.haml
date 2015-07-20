@@ -56,20 +56,11 @@
                     .progress-bar.progress-bar-danger{:style => "width: 20%"}
             / /.control-sidebar-menu
           / /.tab-pane
-          / Stats tab content
-          #control-sidebar-stats-tab.tab-pane Stats Tab Content
-          / /.tab-pane
           / Settings tab content
           #control-sidebar-settings-tab.tab-pane
             %form{:method => "post"}
               %h3.control-sidebar-heading General Settings
-              .form-group
-                %label.control-sidebar-subheading
-                  Report panel usage
-                  %input.pull-right{:checked => "checked", :type => "checkbox"}/
-                %p
-                  Some information about this general settings option
-              / /.form-group
+              = render Config.all
           / /.tab-pane
       .control-sidebar-bg{:style => "position: fixed; height: auto;"}
     / ./wrapper

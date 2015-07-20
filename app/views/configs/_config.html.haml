@@ -1,0 +1,7 @@
+.form-group
+  %label.control-sidebar-subheading{ class: ('inline-label' if !!config.value == config.value) }
+    = config.var.humanize + " : "
+  - if !!config.value == config.value
+    = check_box_tag config.var, "1", config.value, class: 'pull-right'
+  - elsif config.value.class == String
+    = text_field_tag config.var, config.value, class: 'input-sm form-control'
