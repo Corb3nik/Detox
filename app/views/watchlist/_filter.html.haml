@@ -1,0 +1,13 @@
+.panel.panel-default
+  .panel-heading
+    .panel-title Watched Issues
+
+  .panel-body
+    %p Manage all of your watched issues.
+  %table.table
+    %tr
+      %th Name
+      %th Year
+      %th Publisher
+      %th Status
+    = render partial: 'watchlist/comic_vine_series', collection: ComicVineSeries.all
