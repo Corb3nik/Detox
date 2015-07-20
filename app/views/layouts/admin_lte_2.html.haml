@@ -58,9 +58,11 @@
           / /.tab-pane
           / Settings tab content
           #control-sidebar-settings-tab.tab-pane
-            %form{:method => "post"}
+            = form_tag configs_update_path, method: :put do
               %h3.control-sidebar-heading General Settings
               = render Config.all
+
+              = submit_tag "Save Changes", class: 'btn btn-success'
           / /.tab-pane
       .control-sidebar-bg{:style => "position: fixed; height: auto;"}
     / ./wrapper

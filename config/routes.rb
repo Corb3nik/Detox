@@ -63,5 +63,8 @@ Rails.application.routes.draw do
   post 'import_list/import', to: 'import_list#import'
   get :import_list, to: 'import_list#index'
 
+  # Configs
+  put 'configs/update', to: 'configs/#update'
+
   root 'watchlist#index'
 end
