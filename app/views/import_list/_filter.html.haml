@@ -6,21 +6,23 @@
     .panel-body
       %p Select the actions that you wish to perform on each imported issue.
       %label Action :
-      .radio-inline
-        %label
-          %input{ type: :radio, name: :import_options, value: :move } Move files
-      .radio-inline
-        %label
-          %input{ type: :radio, name: :import_options, value: :copy } Copy files
+      %label
+        = radio_button_tag :import_options, :move, true
+        Move files
+
+      %label
+        = radio_button_tag :import_options, :copy, false
+        Copy files
 
       .checkbox-inline.pull-right
         %label
-          %input{ type: :checkbox, value: :rename } Rename files
+          = check_box_tag :import_options, :rename
+          Rename files
 
     %table.table
       %tr
         %th
-          %input{ type: :checkbox }
+          %input{ type: :checkbox, id: :check_all }
         %th Name
         %th Year
         %th Number
@@ -28,4 +30,4 @@
       = render(partial: 'import_list/pending_issue', collection: @pending_issues)
 
     .panel-footer
-      %button.btn.btn-lg.btn-primary{ type: :submit } Import
+      = submit_tag :Import, class: 'btn btn-lg btn-primary'
