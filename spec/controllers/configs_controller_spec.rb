@@ -4,8 +4,9 @@ describe ConfigsController, type: :controller do
 
   describe "PUT #update" do
     it "updates the settings" do
+      request.env['HTTP_REFERER'] = root_path
       put :update
-      expect(response.status).to be(200)
+      expect(response).to redirect_to(request.referer)
     end
   end
 end

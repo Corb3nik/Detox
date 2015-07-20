@@ -64,7 +64,7 @@ Rails.application.routes.draw do
   get :import_list, to: 'import_list#index'
 
   # Configs
-  put 'configs/update', to: 'configs/#update'
+  put 'configs/update', to: 'configs#update'
 
   root 'watchlist#index'
 end
