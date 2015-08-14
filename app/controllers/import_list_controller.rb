@@ -2,10 +2,12 @@ class ImportListController < ApplicationController
 
   def index
     @pending_issues = PendingIssue.includes(:issue).all
+    @location = Config.import_location
   end
 
   def scan
     if params.has_key? :location
+      Config.import_location = params[:location]
       @pending_issues = Scan.scan params[:location]
     end
 

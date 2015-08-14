@@ -5,6 +5,6 @@
     = form_tag import_list_scan_path, methhod: :post do
       .form-group
         = label_tag :location, "Select a folder to import : "
-        = text_field_tag :location, nil, class: 'form-control'
+        = text_field_tag :location, location, class: 'form-control'
 
       = submit_tag "Scan Folder", class: 'btn btn-lg btn-primary'

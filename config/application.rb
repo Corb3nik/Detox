@@ -38,5 +38,11 @@ module Detox
       config.current_url_method = 'request.original_url'
     end
     ActionView::Base.send :include, BootstrapNavbar::Helpers
+
+    # Persistent settings
+    config.after_initialize do
+      Config.api_key = ""
+      Config.import_location = ""
+    end
   end
 end

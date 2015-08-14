@@ -2,5 +2,5 @@
   %h1 Import List
 
 .content.body
-  = render partial: 'scan'
+  = render partial: 'scan', locals: { location: @location }
   = render partial: 'filter'
