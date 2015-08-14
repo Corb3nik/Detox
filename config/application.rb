@@ -41,8 +41,15 @@ module Detox
 
     # Persistent settings
     config.after_initialize do
-      Config.api_key = ""
-      Config.import_location = ""
+      if Config.where(var: :api_key).empty?
+        Config.api_key = ""
+      end
+
+      if Config.where(var: :import_location).empty?
+        Config.import_location = ""
+      end
+
+      Config.load_from_persistance
     end
   end
 end
