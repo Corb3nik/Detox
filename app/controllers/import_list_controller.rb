@@ -15,8 +15,18 @@ class ImportListController < ApplicationController
   def import
     if params.has_key? :issue_ids
       for issue_id in params[:issue_ids] do
-        IssueManager.remove(issue_id, PendingIssue)
+        # TODO : Find all matching isses in the comicvine API
+
+        # TODO : If multiple or no matches are found, create an UnmatchedIssue for each comicvine match
+
+        # TODO : Else, create a WatchedIssue from the comicvine match
         IssueManager.add(issue_id, WatchedIssue)
+
+        # TODO : Perform the import action (move files, copy files, rename files)
+        #        Unmatched issues will be moved/copied/renamed to a 'unmatched' folder
+
+        # TODO : Remove the associated Pending Issue
+        IssueManager.remove(issue_id, PendingIssue)
       end
     end
 
