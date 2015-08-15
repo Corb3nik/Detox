@@ -17,7 +17,7 @@ class ImportListController < ApplicationController
   def import
     if params.has_key? :issue_ids
       for issue_id in params[:issue_ids] do
-        # TODO : Find all matching isses in the comicvine API
+        # TODO : Find all matching issues in the comicvine API
 
         # TODO : If multiple or no matches are found, create an UnmatchedIssue for each comicvine match
 
