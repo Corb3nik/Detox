@@ -11,6 +11,7 @@ gem 'haml'                              # http://haml.info
 gem 'persistent_settings'               # https://github.com/dabit/persistent_settings
 gem 'rails', '4.2.1'                    # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails_bootstrap_navbar'            # https://github.com/bootstrap-ruby/rails-bootstrap-navbar
+gem "resque", "~> 2.0.0.pre.1", github: "resque/resque"
 gem 'sqlite3'                           # Use sqlite3 as the database for Active Record
 gem 'sass-rails', '~> 5.0'              # Use SCSS for stylesheets
 gem 'turbolinks'                        # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
