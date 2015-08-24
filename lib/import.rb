@@ -5,6 +5,14 @@ class Import
     comic_vine_volumes = get_matching_comicvine_volumes issues
 
     if comic_vine_volumes.size == 1
+
+      comic_vine_volumes.first.get_issues do |matched_issue|
+        IssueManager.add issue.id if matched_issue.issue_number == issue.number, WatchedIssue,
+          { comic_vine_series_id: matched_issue.volume,
+            number: issue.issue_number,
+            name: issue.name,
+            cover_date: issue.cover_date }
+      end
     else
     end
   end
