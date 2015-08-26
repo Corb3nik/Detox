@@ -11,6 +11,7 @@ class ConfigsController < ApplicationController
 
   def update_setting(key, value)
     Config.where(var: key).first.update(value: value)
+    (ComicVine::API.key = value.squish) if key == "api_key"
   end
 
 end
