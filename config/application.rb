@@ -41,15 +41,16 @@ module Detox
 
     # Persistent settings
     config.after_initialize do
+      Config.load_from_persistance
       if Config.where(var: :api_key).empty?
         Config.api_key = ""
+      else
+        ComicVine::API.key = Config.where(var: :api_key).first.value
       end
 
       if Config.where(var: :import_location).empty?
         Config.import_location = ""
       end
-
-      Config.load_from_persistance
     end
   end
 end
