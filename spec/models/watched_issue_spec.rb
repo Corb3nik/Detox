@@ -10,11 +10,6 @@ describe WatchedIssue, type: :model do
     expect(watched_issue.valid?).to be false
   end
 
-  it "is invalid without an issue id" do
-    watched_issue = FactoryGirl.build :watched_issue, issue_id: nil
-    expect(watched_issue.valid?).to be false
-  end
-
   it "is invalid without a number" do
     watched_issue = FactoryGirl.build :watched_issue, number: nil
     expect(watched_issue.valid?).to be false

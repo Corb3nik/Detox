@@ -2,7 +2,7 @@ class Import
   def self.import_issue(issue)
     raise TypeEror, 'issue parameter must be of type Issue' unless issue.class == Issue
 
-    comic_vine_volumes = get_matching_comicvine_volumes issue
+    comic_vine_volumes = get_matching_comicvine_volumes_for issue
 
     if comic_vine_volumes.cvos.size == 1
 
@@ -35,7 +35,7 @@ class Import
     name1 == name2
   end
 
-  def self.get_matching_comicvine_volumes(issue)
+  def self.get_matching_comicvine_volumes_for(issue)
     results = ComicVine::API.search 'volume', "\"#{issue.name}\""
 
     if results.total_count > 1

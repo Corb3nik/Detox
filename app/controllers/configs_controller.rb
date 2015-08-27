@@ -1,7 +1,8 @@
 class ConfigsController < ApplicationController
 
   def update
-    params[:settings].each do |key, value|
+
+    params[:settings] and params[:settings].each do |key, value|
       update_setting key, value
     end
     redirect_to request.referer
