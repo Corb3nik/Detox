@@ -7,4 +7,8 @@ class IssueManager
     options[:issue_id] = issue_id
     to.create! options
   end
+
+  def self.add_comic_vine_series(options)
+    ComicVineSeries.create! options
+  end
 end

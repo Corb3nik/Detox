@@ -7,10 +7,12 @@ class Import
     if comic_vine_volumes.cvos.size == 1
 
       volume = comic_vine_volumes.first.fetch
+      IssueManager.add_comic_vine_series ({ id: volume.id, name: volume.name, year: volume.start_year, publisher: volume.publisher.name, status: "N/A" })
+
       volume.get_issues.each do |matched_issue|
         IssueManager.add((issue.id if matched_issue.issue_number.to_i == issue.number),
                          WatchedIssue,
-                         { comic_vine_series_id: matched_issue.volume.id,
+                         { comic_vine_series_id: volume.id,
                            number: matched_issue.issue_number.to_i,
                            name: matched_issue.name,
                            status: (if matched_issue.issue_number.to_i == issue.number then :Downloaded else :Wanted end),
