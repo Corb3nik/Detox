@@ -4,14 +4,14 @@ class Import
 
     comic_vine_volumes = get_matching_comicvine_volumes issue
 
-    if comic_vine_volumes == 1
-      comic_vine_volumes.first.fetch.get_issues do |matched_issue|
+    if comic_vine_volumes.cvos.size == 1
+      comic_vine_volumes.first.fetch.get_issues.each do |matched_issue|
         IssueManager.add((issue.id if matched_issue.issue_number == issue.number),
                          WatchedIssue,
-                         { comic_vine_series_id: matched_issue.volume,
-                           number: issue.issue_number,
+                         { comic_vine_series_id: matched_issue.volume.id,
+                           number: issue.number,
                            name: issue.name,
-                           cover_date: issue.cover_date })
+                           cover_date: matched_issue.cover_date })
       end
     else
     end
@@ -39,6 +39,7 @@ class Import
 
       results.cvos.reject! do |volume|
         volume.name.gsub! /\\bthe\\b/i, ' '
+        Rails.logger.info "Comparing Issue : #{issue.name} with #{volume.name}"
         not is_same_name issue.name, volume.name
       end
     end
