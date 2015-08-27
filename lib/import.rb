@@ -5,12 +5,15 @@ class Import
     comic_vine_volumes = get_matching_comicvine_volumes issue
 
     if comic_vine_volumes.cvos.size == 1
-      comic_vine_volumes.first.fetch.get_issues.each do |matched_issue|
-        IssueManager.add((issue.id if matched_issue.issue_number == issue.number),
+
+      volume = comic_vine_volumes.first.fetch
+      volume.get_issues.each do |matched_issue|
+        IssueManager.add((issue.id if matched_issue.issue_number.to_i == issue.number),
                          WatchedIssue,
                          { comic_vine_series_id: matched_issue.volume.id,
-                           number: issue.number,
-                           name: issue.name,
+                           number: matched_issue.issue_number.to_i,
+                           name: matched_issue.name,
+                           status: (if matched_issue.issue_number.to_i == issue.number then :Downloaded else :Wanted end),
                            cover_date: matched_issue.cover_date })
       end
     else
