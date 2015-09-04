@@ -1,7 +1,5 @@
 class Import
   def self.import_issue(issue)
-    raise TypeEror, 'issue parameter must be of type Issue' unless issue.class == Issue
-
     comic_vine_volumes = get_matching_comicvine_volumes_for issue
 
     if comic_vine_volumes.cvos.size == 1
@@ -19,13 +17,15 @@ class Import
                            cover_date: matched_issue.cover_date })
       end
     else
+      comic_vine_volumes.each do |matched_volume|
+        IssueManager.add issue.id, UnmatchedIssue, comic_vine_series_id: matched_volume.id
+      end
     end
   end
 
   private
 
   def self.is_same_name(name1, name2)
-
     [name1, name2].each do |name|
       name.gsub! /[^\sa-zA-Z1-9]/, ' '
       name.gsub! /\\band\\b|&/i, ' '

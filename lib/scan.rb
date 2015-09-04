@@ -98,7 +98,7 @@ class Scan
       # Create pending issue
       Issue.create_pending_issue File.dirname(file),
           File.basename(file),
-          issue,
+          issue.strip,
           year,
           issue_number.sub!(/^0*/, "") if issue_number
     end
