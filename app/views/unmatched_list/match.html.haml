@@ -1,0 +1,47 @@
+.container-fluid
+  .row-fluid
+    %ul.pager
+      %li.previous
+        = link_to '#' do
+          %span{ 'aria-hidden' => true } &larr;
+          Previous
+      %li.next
+        = link_to '#' do
+          Skip
+          %span{ 'aria-hidden' => true } &rarr;
+      %li
+        .progress
+          .progress-bar{ role: :progressbar, 'aria-valuenow' => 60, 'aria-valuemin' => 0, 'aria-valuemax' => 100, style: 'width: 60%' } 60%
+
+  .row-fluid
+    .col-md-6
+      .panel.panel-default
+        .panel-body
+          %h4 Your Issue
+          = label_tag 'Path :'
+          = text_field_tag 'path', nil, disabled: true, class: 'form-control'
+          = label_tag 'Filename :'
+          = text_field_tag 'filename', nil, disabled: true, class: 'form-control'
+          = label_tag 'Name :'
+          = text_field_tag 'name', nil, disabled: true, class: 'form-control'
+          = label_tag 'Year :'
+          = text_field_tag 'year', nil, disabled: true, class: 'form-control'
+          = label_tag 'Number :'
+          = text_field_tag 'number', nil, disabled: true, class: 'form-control'
+
+
+    .col-md-6
+      .panel.panel-default
+        .panel-body
+          %h4 ComicVine Series
+  .row-fluid
+    .col-md-12
+      .panel.panel-default
+        .panel-body
+          %h4 Potential Matches
+
+  .row-fluid
+    .col-md-12
+      = button_tag :Match, class: 'btn btn-primary btn-lg pull-right'
+
+
