@@ -6,18 +6,19 @@
     .panel-heading
       .panel-title Unmatched Issues
 
-    .panel-body
-      %p Here are the list of all the issues that could not be matched against the ComicVine database.
-    %table.table
-      %tr
-        %th
-          %input{ type: :checkbox, id: :check_all }
-        %th Name
-        %th Year
-        %th Number
-        %th Filename
-        %th Number of matches
-      = render partial: 'unmatched_issue', locals: { unmatched_issues:  @unmatched_issues }
+    = form_tag unmatched_list_match_path, method: :get do
+      .panel-body
+        %p Here are the list of all the issues that could not be matched against the ComicVine database.
+      %table.table
+        %tr
+          %th
+            %input{ type: :checkbox, id: :check_all }
+          %th Name
+          %th Year
+          %th Number
+          %th Filename
+          %th Number of matches
+        = render partial: 'unmatched_issue', locals: { unmatched_issues:  @unmatched_issues }
 
-    .panel-footer
-      = button_tag :Edit, class: 'btn btn-lg btn-primary'
+      .panel-footer
+        = submit_tag :Match, class: 'btn btn-lg btn-primary'

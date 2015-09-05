@@ -59,7 +59,8 @@ Rails.application.routes.draw do
   resources :watchlist, only: [:show, :destroy], path: :volume, as: :volume
 
   # Unmatched List
-  get :unmatched_list, to: 'unmatched_list#index'
+  resources :unmatched_list, only: [:index, :update]
+  get 'unmatched_list/match', to: 'unmatched_list#match'
 
   # Import list
   post 'import_list/scan', to: 'import_list#scan'
