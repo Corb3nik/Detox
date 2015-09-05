@@ -1,0 +1,10 @@
+- unmatched_issues.group(:issue_id).each do |unmatched_issue|
+  %tr
+    %td
+      = check_box_tag 'issue_ids[]', unmatched_issue.issue_id
+    %td= unmatched_issue.issue.name
+    %td= unmatched_issue.issue.year
+    %td= unmatched_issue.issue.number
+    %td= unmatched_issue.issue.filename
+    %td= unmatched_issues.where(issue_id: unmatched_issue.issue_id).count
+
