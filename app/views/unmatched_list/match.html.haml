@@ -1,13 +1,17 @@
 .container-fluid
   .row-fluid
     %ul.pager
+      - current_id_index = params[:issue_ids].find_index(params[:current_id])
       %li.previous
-        = link_to '#' do
+        - previous_id = if current_id_index == 0 then nil else params[:issue_ids][current_id_index - 1] end
+        = link_to url_for(params.merge(current_id: previous_id)) do
           %span{ 'aria-hidden' => true } &larr;
-          Previous
+          = if previous_id.nil? then "Back" else "Previous" end
+
       %li.next
-        = link_to '#' do
-          Skip
+        - next_id = params[:issue_ids][current_id_index + 1]
+        = link_to url_for(params.merge(current_id: next_id)) do
+          = if next_id.nil? then "Back" else "Skip" end
           %span{ 'aria-hidden' => true } &rarr;
       %li
         .progress
@@ -19,15 +23,15 @@
         .panel-body
           %h4 Your Issue
           = label_tag 'Path :'
-          = text_field_tag 'path', nil, disabled: true, class: 'form-control'
+          = text_field_tag 'path', nil, disabled: true, class: 'form-control', value: @issue.path
           = label_tag 'Filename :'
-          = text_field_tag 'filename', nil, disabled: true, class: 'form-control'
+          = text_field_tag 'filename', nil, disabled: true, class: 'form-control', value: @issue.filename
           = label_tag 'Name :'
-          = text_field_tag 'name', nil, disabled: true, class: 'form-control'
+          = text_field_tag 'name', nil, disabled: true, class: 'form-control', value: @issue.name
           = label_tag 'Year :'
-          = text_field_tag 'year', nil, disabled: true, class: 'form-control'
+          = text_field_tag 'year', nil, disabled: true, class: 'form-control', value: @issue.year
           = label_tag 'Number :'
-          = text_field_tag 'number', nil, disabled: true, class: 'form-control'
+          = text_field_tag 'number', nil, disabled: true, class: 'form-control', value: @issue.number
 
 
     .col-md-6
