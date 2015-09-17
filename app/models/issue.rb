@@ -9,7 +9,7 @@ class Issue < ActiveRecord::Base
   validates_uniqueness_of :filename, scope: :path
 
   def self.create_pending_issue(path, filename, name, year, issue_number)
-    issue = Issue.create! path: path,
+    issue = Issue.create path: path,
         filename: filename,
         name: name,
         year: year,

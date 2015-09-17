@@ -2,11 +2,12 @@ class Import
   def self.import_issue(issue)
     comic_vine_volumes = get_matching_comicvine_volumes_for issue
 
+    comic_vine_volumes.each do |matched_volume|
+      IssueManager.add_comic_vine_series ({ id: matched_volume.id, name: matched_volume.name, year: matched_volume.start_year, publisher: matched_volume.publisher.name, status: "N/A" })
+    end
+
     if comic_vine_volumes.cvos.size == 1
-
       volume = comic_vine_volumes.first.fetch
-      IssueManager.add_comic_vine_series ({ id: volume.id, name: volume.name, year: volume.start_year, publisher: volume.publisher.name, status: "N/A" })
-
       volume.get_issues.each do |matched_issue|
         IssueManager.add((issue.id if matched_issue.issue_number.to_i == issue.number),
                          WatchedIssue,

@@ -9,6 +9,6 @@ class IssueManager
   end
 
   def self.add_comic_vine_series(options)
-    ComicVineSeries.create! options
+    ComicVineSeries.create options
   end
 end
